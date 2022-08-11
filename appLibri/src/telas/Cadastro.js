@@ -19,8 +19,37 @@ const Cadastro = () => {
   // FUNÇÃO QUE MANIPULA A ENTRADA DE DADOS NA STATE NO MÉTODO onChangeText
   const handlerOnChange = (text, input) => {
     setInputs( (prevState) => (
-      console.log(prevState)
+      console.log(prevState),
+      //console.log(input + ' ' + text)
+
+      //INJEÇÃO DE DADOS NA STATE 
+      {...prevState, [input]:text}
+      
       ));
+  }
+
+  {/********** VALIDAÇÃO DOS DADOS DE CADASTRO **********
+                    FUNÇÃO DE VALIDAÇÃO               */}
+
+  const validate = () => {
+    
+    let validate = true;
+
+    if (!inputs.titulo) {
+      validate = false;
+      console.log('TITULO EM BRANCO');
+    }
+
+    if (!inputs.descricao) {
+      validate = false;
+      console.log('DESCRICAO EM BRANCO');
+    }
+
+    if (!inputs.capa) {
+      validate = false;
+      console.log('CAPA EM BRANCO');
+    }
+
   }
 
   //const nome = 'TELA DE CADASTRO';
@@ -34,10 +63,10 @@ const Cadastro = () => {
 
         <View style={estilos.viewForm}>
 
-          <Input label="TITULO"     onChangeText={ (text) => handlerOnChange(text, 'titulo' ) }/>
-          <Input label="DESCRIÇÃO"  /*onChangeText={ (text) => handlerOnChange(text, 'descricao' ) } */ />
-          <Input label="CAPA"       /*onChangeText={ (text) => handlerOnChange(text, 'capa' ) } */ />
-          <Button title="CADASTRAR"/>
+          <Input  label="TITULO"     onChangeText={ (text) => handlerOnChange(text, 'titulo' )     }/>
+          <Input  label="DESCRIÇÃO"  onChangeText={ (text) => handlerOnChange(text, 'descricao' )  }/>
+          <Input  label="CAPA"       onChangeText={ (text) => handlerOnChange(text, 'capa' )       }/>
+          <Button title="CADASTRAR" onPress={validate} />
 
         </View>
       </ScrollView>

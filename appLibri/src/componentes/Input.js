@@ -35,15 +35,16 @@ const estilos = StyleSheet.create({
     },
     inputContainer:{
         height:55,
-        borderRadius:10,
+        borderRadius:25,
+        elevation: 3,
         backgroundColor:COLORS.light,
         flexDirection:"row",
         paddingHorizontal:15,
-        borderWidth:0.5,
+        //borderWidth:0.5,
         alignItems:"center",
     },
     textInput:{
-        color:COLORS.darkBlue,
+        color:COLORS.blue,
         flex:1
     }
 });
