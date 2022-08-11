@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import Login from "./src/telas/Login";
 import Cadastro from "./src/telas/Cadastro";
 
 const App = () => {
 
-    const nome = 'SENAI - JANDIRA';
+    //const nome = 'SENAI - JANDIRA';
 
   return (
 

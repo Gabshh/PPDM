@@ -1,4 +1,4 @@
-import { loadPartialConfigAsync } from "@babel/core";
+//import { loadPartialConfigAsync } from "@babel/core";
 import React from "react";
 import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import Input from "../componentes/Input";
@@ -7,7 +7,23 @@ import COLORS from "../const/Colors";
 
 const Cadastro = () => {
 
-    const nome = 'TELA DE CADASTRO';
+  {/********** CAPTURA DE DADOS COM O USO DE STATE **********
+  CRIAÇÃO DA ESTRUTURA DE STATE QUE ARMAZENA OS DADOS DIGITADOS*/}
+
+  const [inputs, setInputs] = React.useState({
+    titulo: '',
+    descricao: '',
+    capa: '',
+  });
+
+  // FUNÇÃO QUE MANIPULA A ENTRADA DE DADOS NA STATE NO MÉTODO onChangeText
+  const handlerOnChange = (text, input) => {
+    setInputs( (prevState) => (
+      console.log(prevState)
+      ));
+  }
+
+  //const nome = 'TELA DE CADASTRO';
 
   return(
 
@@ -18,9 +34,9 @@ const Cadastro = () => {
 
         <View style={estilos.viewForm}>
 
-          <Input label="TITULO"/>
-          <Input label="DESCRIÇÃO"/>
-          <Input label="CAPA"/>
+          <Input label="TITULO"     onChangeText={ (text) => handlerOnChange(text, 'titulo' ) }/>
+          <Input label="DESCRIÇÃO"  /*onChangeText={ (text) => handlerOnChange(text, 'descricao' ) } */ />
+          <Input label="CAPA"       /*onChangeText={ (text) => handlerOnChange(text, 'capa' ) } */ />
           <Button title="CADASTRAR"/>
 
         </View>
