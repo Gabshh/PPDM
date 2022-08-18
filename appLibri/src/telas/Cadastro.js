@@ -16,6 +16,8 @@ const Cadastro = () => {
     capa: '',
   });
 
+  {/***********************************************************/}
+
   // FUNÇÃO QUE MANIPULA A ENTRADA DE DADOS NA STATE NO MÉTODO onChangeText
   const handlerOnChange = (text, input) => {
     setInputs( (prevState) => (
@@ -28,33 +30,48 @@ const Cadastro = () => {
       ));
   }
 
-  {/********** VALIDAÇÃO DOS DADOS DE CADASTRO **********
-                    FUNÇÃO DE VALIDAÇÃO               */}
+  {/***********************************************************/}
 
+  {/********** VALIDAÇÃO DOS DADOS DE CADASTRO ***********/}
+  
+  // STATE DE ERRO DE PREENCHIMENTO
+  const [errors, setErrors] = React.useState({});
+
+  // FUNÇÃO HANDLER QUE CONFIGURA AS MENSAGENS DE ERRO NA STATE
+  const handlerErrors = (errorMessage, input) => {
+    setErrors( (prevState)=>({...prevState, [input]:errorMessage}) );
+  }
+
+  // FUNÇÃO DE VALIDAÇÃO               
   const validate = () => {
     
     let validate = true;
 
     if (!inputs.titulo) {
       validate = false;
-      console.log('TITULO EM BRANCO');
+      handlerErrors('Informe o título do livro.', 'titulo');
+      // console.log('TITULO EM BRANCO');
     }
 
     if (!inputs.descricao) {
       validate = false;
-      console.log('DESCRICAO EM BRANCO');
+      handlerErrors('Informe a descrição do livro.', 'descricao');
+      // console.log('DESCRICAO EM BRANCO');
     }
 
     if (!inputs.capa) {
       validate = false;
-      console.log('CAPA EM BRANCO');
+      handlerErrors('Informe a capa do livro.', 'capa');
+      // console.log('CAPA EM BRANCO');
     }
+
+    console.log(errors);
 
   }
 
   //const nome = 'TELA DE CADASTRO';
 
-  return(
+      return(
 
     <SafeAreaView style={estilos.safe}>
       <ScrollView style={estilos.scroll}>
@@ -63,10 +80,10 @@ const Cadastro = () => {
 
         <View style={estilos.viewForm}>
 
-          <Input  label="TITULO"     onChangeText={ (text) => handlerOnChange(text, 'titulo' )     }/>
-          <Input  label="DESCRIÇÃO"  onChangeText={ (text) => handlerOnChange(text, 'descricao' )  }/>
-          <Input  label="CAPA"       onChangeText={ (text) => handlerOnChange(text, 'capa' )       }/>
-          <Button title="CADASTRAR" onPress={validate} />
+          <Input  label="TÍTULO"     error={errors.titulo}     onFocus={()=>(handlerErrors(null, 'titulo'))}    onChangeText={ (text) => handlerOnChange(text, 'titulo' )     }/>
+          <Input  label="DESCRIÇÃO"  error={errors.descricao}  onFocus={()=>(handlerErrors(null, 'descricao'))} onChangeText={ (text) => handlerOnChange(text, 'descricao' )  }/>
+          <Input  label="CAPA"       error={errors.capa}       onFocus={()=>(handlerErrors(null, 'capa'))}      onChangeText={ (text) => handlerOnChange(text, 'capa' )       }/>
+          <Button title="CADASTRAR"  onPress={validate} />
 
         </View>
       </ScrollView>

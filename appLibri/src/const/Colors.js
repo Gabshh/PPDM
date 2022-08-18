@@ -7,6 +7,7 @@ const COLORS = {
     light: '#F3F4FB',
     darkBlue: '#7978B5',
     red: '#F00',
+    errorRed: '#FF6270',
 }
 
 export default COLORS;

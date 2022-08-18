@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacity, StyleSheet, Text, Pressable } from "react-native";
 import COLORS from "../const/Colors";
 
-const Button = ({title, onPress=()=>{}}) => {
+const Button = ( { title, onPress= ()=>{} } ) => {
 
     return (
 
@@ -20,7 +20,7 @@ const estilos = StyleSheet.create({
     button:{
         height:55,
         width:"100%",
-        borderRadius:25,
+        borderRadius:18,
         backgroundColor:COLORS.blue,
         justifyContent:"center",
         alignItems:"center",
