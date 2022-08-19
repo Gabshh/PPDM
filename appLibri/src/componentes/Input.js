@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import COLORS from "../const/Colors";
 
@@ -34,7 +34,7 @@ const Input = ({label, error, onFocus=()=>{}, ...props}) => {
 
             </View>
 
-            <Text style={[estilos.errorMessage, {display: showText ? 'none' : 'flex' }]}>{error}</Text>
+            <Text style={[estilos.errorMessage, {opacity: showText ? 0.2 : 1 }]}>{error}</Text>
             {/* <Text style={estilos.errorMessage}>{error}</Text> */}
 
         </View>
