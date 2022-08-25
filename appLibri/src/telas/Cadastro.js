@@ -80,9 +80,9 @@ const Cadastro = () => {
 
         <View style={estilos.viewForm}>
 
-          <Input  label="TÍTULO"     error={errors.titulo}     onFocus={()=>(handlerErrors(null, 'titulo'))}    onChangeText={ (text) => handlerOnChange(text, 'titulo' )     }/>
-          <Input  label="DESCRIÇÃO"  error={errors.descricao}  onFocus={()=>(handlerErrors(null, 'descricao'))} onChangeText={ (text) => handlerOnChange(text, 'descricao' )  }/>
-          <Input  label="CAPA"       error={errors.capa}       onFocus={()=>(handlerErrors(null, 'capa'))}      onChangeText={ (text) => handlerOnChange(text, 'capa' )       }/>
+          <Input  label="TÍTULO"     iconName="book-outline"      error={errors.titulo}     onFocus={()=>(handlerErrors(null, 'titulo'))}    onChangeText={ (text) => handlerOnChange(text, 'titulo' )     }/>
+          <Input  label="DESCRIÇÃO"  iconName="card-text-outline" error={errors.descricao}  onFocus={()=>(handlerErrors(null, 'descricao'))} onChangeText={ (text) => handlerOnChange(text, 'descricao' )  }/>
+          <Input  label="CAPA"       iconName="image-outline"     error={errors.capa}       onFocus={()=>(handlerErrors(null, 'capa'))}      onChangeText={ (text) => handlerOnChange(text, 'capa' )       }/>
           <Button title="CADASTRAR"  onPress={validate} />
 
         </View>

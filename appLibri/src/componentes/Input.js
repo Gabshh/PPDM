@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../const/Colors";
 
-const Input = ({label, error, onFocus=()=>{}, ...props}) => {
+const Input = ({label, iconName, error, onFocus=()=>{}, ...props}) => {
 
     const [showText, setShowText] = useState(true)
     
@@ -23,6 +24,8 @@ const Input = ({label, error, onFocus=()=>{}, ...props}) => {
             <Text style={estilos.inputLabel}>{label}</Text>
 
             <View style={[estilos.inputContainer, {borderColor: error ? COLORS.errorRed : COLORS.light }]}>
+
+                <Icon name={iconName} style={estilos.icon} />
 
                 {/* Caixa de texto */}
                 <TextInput 
@@ -67,6 +70,11 @@ const estilos = StyleSheet.create({
     textInput:{
         color:COLORS.blue,
         flex:1
+    },
+    icon:{
+        fontSize:22,
+        color:COLORS.darkBlue,
+        marginRight:10,
     }
 });
 
