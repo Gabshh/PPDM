@@ -1,16 +1,14 @@
+//import do pacote express (node_modules)
 const express = require('express');
 
 const app = express();
 
-// ROTA GET DE TESTE:
-app.get('/', (req, res)=>{
-    res.send('RESPOSTA DA ROTA RAIZ');
-});
+app.use(express.json());
 
-// ROTA GET DE LISTAGENS DE DENTISTAS:
-app.get('/listagemDentistas', (req, res)=>{
-    res.send('RESPOSTA DA ROTA DE LISTAGEM DE DENTISTAS');
-});
+// IMPORTAÇÃO DO ARQUIVO DE ROTAS DE LIVROS
+const livroController = require('./controller/livroController');
+
+app.use('/', livroController);
 
 app.listen(3000, ()=>{
     console.log('APLICAÇÃO RODANDO EM - http://localhost:3000');
