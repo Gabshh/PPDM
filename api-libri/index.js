@@ -8,6 +8,7 @@ app.use(express.json());
 // IMPORTAÇÃO DO ARQUIVO DE ROTAS DE LIVROS
 const livroController = require('./controller/livroController');
 
+// '/' - raíz da aplicação
 app.use('/', livroController);
 
 app.listen(3000, ()=>{
