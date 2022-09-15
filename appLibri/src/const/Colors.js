@@ -6,6 +6,8 @@ const COLORS = {
     gray: '#BABBC3',
     light: '#F3F4FB',
     darkBlue: '#7978B5',
+    darkBackground: '#202124',
+    darkInput: '#303134',
     red: '#F00',
     errorRed: '#FF6270',
 }

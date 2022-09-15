@@ -61,19 +61,20 @@ const estilos = StyleSheet.create({
         height:55,
         borderRadius:18,
         elevation: 3,
-        backgroundColor:COLORS.light,
+        backgroundColor:COLORS.darkInput,
+        borderBottomColor:COLORS.blue,
         flexDirection:"row",
         paddingHorizontal:15,
         borderWidth:0.5,
         alignItems:"center",
     },
     textInput:{
-        color:COLORS.blue,
+        color:COLORS.white,
         flex:1
     },
     icon:{
         fontSize:22,
-        color:COLORS.darkBlue,
+        color:COLORS.blue,
         marginRight:10,
     }
 });

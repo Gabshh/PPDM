@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import Input from "../componentes/Input";
 import Button from "../componentes/Button";
 import COLORS from "../const/Colors";
+import apiLivraria from '../service/apiLivraria';
 
 const Cadastro = () => {
 
@@ -65,8 +66,29 @@ const Cadastro = () => {
       // console.log('CAPA EM BRANCO');
     }
 
+    if (validate) {
+      //ENVIA OS DADOS PARA A API CADASTRAR
+      cadastrar();
+      console.log('cadastrou!!🤨');
+    }
+
     console.log(errors);
 
+  }
+
+  const cadastrar = ()=>{
+    
+    try{
+      const response = apiLivraria.post('/cadastrarLivros', 
+      {
+        titulo:inputs.titulo,
+        descricao:inputs.descricao,
+        imagem:inputs.capa
+      });
+    }catch(error){
+      console.log(error)
+    }
+    
   }
 
   //const nome = 'TELA DE CADASTRO';
@@ -98,14 +120,14 @@ const estilos = StyleSheet.create({
 
   safe:{
     flex:1,
-    backgroundColor:COLORS.white,
+    backgroundColor:COLORS.darkBackground,
   },
   scroll:{
     paddingHorizontal:20,
     paddingTop:50,
   },
   textTitle:{
-    color:COLORS.black,
+    color:COLORS.white,
     fontSize:25,
     fontWeight:"bold",
   },

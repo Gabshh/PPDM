@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import Login from "./src/telas/Login";
 import Cadastro from "./src/telas/Cadastro";
+import Listagem from "./src/telas/Listagem";
 
 const App = () => {
 
@@ -21,7 +22,8 @@ const App = () => {
 
     // <Login />
     
-    <Cadastro />
+    //<Cadastro />
+    <Listagem/>
 
   );
 
