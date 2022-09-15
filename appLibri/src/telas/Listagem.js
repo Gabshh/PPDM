@@ -18,7 +18,8 @@ const Listagem = ()=>{
                 }
             )
 
-        }
+        },
+        []
     );
 
     return(
