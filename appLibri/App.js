@@ -1,47 +1,38 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import Login from "./src/telas/Login";
-import Cadastro from "./src/telas/Cadastro";
-import Listagem from "./src/telas/Listagem";
+import React                          from "react";
+import { NavigationContainer        } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Cadastro                       from "./src/telas/Cadastro";
+import Listagem                       from "./src/telas/Listagem";
+import Detalhes                       from "./src/telas/Detalhes";
 
 const App = () => {
 
-    //const nome = 'SENAI - JANDIRA';
+  const Stack = createNativeStackNavigator();
 
   return (
 
-  //  <View>
+    <Detalhes/>
 
-  //     <Text style={estilo} >
+    // <NavigationContainer>
+    //   <Stack.Navigator screenOptions={false}>
+        
+    //     <Stack.Screen
+    //     name="Cadastro"
+    //     component={Cadastro}
+    //     options={{title:'CADASTRO DE LIVROS'}}
+    //     />
 
-  //      {nome}
+    //     <Stack.Screen
+    //     name="Cadastro"
+    //     component={Cadastro}
+    //     options={{title:'CADASTRO DE LIVROS'}}
+    //     />
 
-  //     </Text>
-
-  //   </View>
-
-    // <Login />
-    
-    //<Cadastro />
-    <Listagem/>
+    //   </Stack.Navigator>
+    // </NavigationContainer>
 
   );
 
 }
-
-const estilo = StyleSheet.create({
-  container:{},
-  titulo:{
-    width:"100%",
-    backgroundColor:"#F00",
-    textAlign:"center",
-    fontSize:16,
-    lineHeight:26,
-    color:"#FFF",
-    fontWeight: "bold",
-    padding:16,
-  },
-
-});
 
 export default App;

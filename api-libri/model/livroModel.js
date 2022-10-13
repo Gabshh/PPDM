@@ -4,15 +4,15 @@ const Sequelize = require('sequelize');
 //IMPORTAÇÃO DA CONEXÃO DO BANDO DE DADOS
 const connection = require('../database/database');
 
-/******************************************
+/**************************************************
  REPRESENTAÇÃO DO MODELO DE DADOS tbl_livro
  PARÂMETROS DO MÉTODO define():
     1 - NOME DA TABELA
     2 - OBJETO JSON CONTENDO:
-                            NOME DO CAMPO
-                            TIPO DE DADO
-                            REGRAS DO CAMPO
- ******************************************/
+                        NOME DO CAMPO
+                        TIPO DE DADO
+                        REGRAS DO CAMPO
+ *************************************************/
 
 const LivroModel = connection.define(
     'tbl_livro',

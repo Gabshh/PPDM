@@ -93,7 +93,7 @@ const Cadastro = () => {
 
   //const nome = 'TELA DE CADASTRO';
 
-      return(
+    return(
 
     <SafeAreaView style={estilos.safe}>
       <ScrollView style={estilos.scroll}>

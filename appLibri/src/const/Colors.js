@@ -7,7 +7,7 @@ const COLORS = {
     light: '#F3F4FB',
     darkBlue: '#7978B5',
     darkBackground: '#202124',
-    darkInput: '#303134',
+    darkInput: '#312F31',
     red: '#F00',
     errorRed: '#FF6270',
 }
