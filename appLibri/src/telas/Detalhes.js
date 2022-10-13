@@ -34,6 +34,19 @@ const Detalhes = () => {
                     <Text style={estilos.titulo}>{livro.titulo}</Text>
                     <Text style={estilos.descricao}>{livro.descricao}</Text>
                 </View>
+
+                <View style={estilos.botoes}>
+
+                    <TouchableOpacity style={estilos.botao} onPress={()=>{}}>
+                        <Text style={estilos.textoBotao}>EDITAR</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={estilos.botao} onPress={()=>{}}>
+                        <Text style={estilos.textoBotao}>EXCLUIR</Text>
+                    </TouchableOpacity>
+
+                </View>
+
             </View>
         </ScrollView>
     )
