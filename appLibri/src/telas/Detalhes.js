@@ -4,9 +4,9 @@ import COLORS from "../const/Colors";
 import apiLivraria from '../service/apiLivraria';
 import capaLivro150 from '../assets/livros/lor150.png';
 
-const Detalhes = () => {
+const Detalhes = ({ route, navigation }) => {
 
-    const cod_livro = 1;
+    const {cod_livro} = route.params;
 
     const[livro, setLivro] = useState({
         cod_livro:'',
@@ -24,11 +24,26 @@ const Detalhes = () => {
                 }
             )
         }
+        ,[]
     );
+
+    // FUNÇÃO DE EXCLUSÃO DE LIVROS
+    const excluir =()=>{
+
+        try {
+         
+            apiLivraria.delete(`/excluirLivros/${livro.cod_livro}`);
+            navigation.navigate('Listagem');
+            
+        } catch (error) {
+            
+        }
+    }
 
     return(
         <ScrollView style={estilos.scroll}>
             <View style={estilos.container}>
+
                 <View style={estilos.post}>
                     <Image style={estilos.imagem} source={capaLivro150}/>
                     <Text style={estilos.titulo}>{livro.titulo}</Text>
@@ -37,11 +52,11 @@ const Detalhes = () => {
 
                 <View style={estilos.botoes}>
 
-                    <TouchableOpacity style={estilos.botao} onPress={()=>{}}>
+                    <TouchableOpacity style={estilos.botaoEditar} onPress={()=>{navigation.navigate('Editar', {'cod_livro':livro.cod_livro})}}>
                         <Text style={estilos.textoBotao}>EDITAR</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={estilos.botao} onPress={()=>{}}>
+                    <TouchableOpacity style={estilos.botaoExcluir} onPress={()=>{excluir()}}>
                         <Text style={estilos.textoBotao}>EXCLUIR</Text>
                     </TouchableOpacity>
 
@@ -93,9 +108,17 @@ const estilos = StyleSheet.create({
         padding:10,
         justifyContent:'center',
     },
-    botao:{
+    botaoExcluir:{
         width:'50%',
-        marginHorizontal:10,
+        marginLeft:7.5,
+        borderRadius:15,
+        backgroundColor:COLORS.red,
+    },
+    botaoEditar:{
+        width:'50%',
+        marginLeft:7.5,
+        borderRadius:15,
+        backgroundColor:COLORS.blue,
     },
     textoBotao:{
         padding:10,

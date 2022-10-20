@@ -3,8 +3,11 @@ import { Text, View, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpaci
 import COLORS from "../const/Colors";
 import apiLivraria from '../service/apiLivraria';
 import capaLivro150 from '../assets/livros/lor150.png';
+import Detalhes from './Detalhes';
+import { NavigationContainer        } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Listagem = ()=>{
+const Listagem = ({navigation})=>{
 
     const [livros, setLivros] = useState([]);
 
@@ -30,7 +33,7 @@ const Listagem = ()=>{
                 {
                     livros.map(
                         livro=>(
-                            <TouchableOpacity key={livro.cod_livro} style={estilos.post} onPress={()=>{}}>
+                            <TouchableOpacity key={livro.cod_livro} style={estilos.post} onPress={()=>navigation.navigate('Detalhes', {cod_livro:livro.cod_livro})}>
                                 <View>
                                     <Image style={estilos.imagem} source={capaLivro150}/>
                                     <Text style={estilos.titulo}>{livro.titulo}</Text>

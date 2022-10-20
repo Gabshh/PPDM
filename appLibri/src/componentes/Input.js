@@ -3,7 +3,7 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import COLORS from "../const/Colors";
 
-const Input = ({label, iconName, error, onFocus=()=>{}, ...props}) => {
+const Input = ({label, iconName, error, onFocus=()=>{}, value, ...props}) => {
 
     const [showText, setShowText] = useState(true)
     
@@ -32,6 +32,7 @@ const Input = ({label, iconName, error, onFocus=()=>{}, ...props}) => {
                 style={estilos.textInput}
                 autoCorrect={false}
                 onFocus={()=>{onFocus()}}
+                value={value}
                 {...props}
                 />
 
